@@ -8,3 +8,10 @@ services:
     volumes:
      - ./app:/app
      - /app/node_modules
+  api:
+    build: ./api
+    command: python3 manage.py runserver 0.0.0.0:7000
+    ports:
+      - "7000:7000"
+    volumes:
+      - ./api:/api
