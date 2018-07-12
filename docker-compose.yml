@@ -8,6 +8,10 @@ services:
     volumes:
      - ./app:/app
      - /app/node_modules
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
   api:
     build: ./api
     command: python3 manage.py runserver 0.0.0.0:7000
@@ -15,3 +19,7 @@ services:
       - "7000:7000"
     volumes:
       - ./api:/api
+    depends_on:
+      - db
+volumes:
+  postgres_data:
