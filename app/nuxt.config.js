@@ -21,6 +21,14 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': {
+          warnings: false
+        }
+      }
+    },
+
     /*
     ** Run ESLint on save
     */
@@ -34,5 +42,9 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  modules: [
+    '@nuxtjs/bulma',
+    '@nuxtjs/axios',
+  ],
 }
